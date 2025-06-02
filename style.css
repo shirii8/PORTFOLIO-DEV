@@ -51,7 +51,8 @@ body{
 
 .btn:hover{
     border: 2px solid #810098;
-   box-shadow: 0 8px 24px 0 #9100ab80;
+   box-shadow: 0 8px 8px 0 #9100ab80;
+   color: #fff;
 }
 
 .about-left{
@@ -211,8 +212,7 @@ body{
 
  .Projects {
     margin-top: 80px;
-    /* Remove flex properties that were causing alignment issues */
-    padding: 0 20px; /* Add some padding for mobile */
+    padding: 0 20px; 
 }
 
 .Projects h1 {
@@ -227,18 +227,26 @@ body{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Increased min-width for better cards */
     gap: 2rem;
-    padding: 40px 0; /* Remove horizontal padding, keep vertical */
-    max-width: 1200px; /* Slightly increased max-width */
+    padding: 40px 0;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 
 .project-cards > div {
-    background: #f1eff2; 
-    border-radius: 8px;
-    padding: .5rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+  background: #1f002c;
+   border-radius: 8px;
+ padding: .5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 1px solid #8a00c4;
+   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .project-cards > div:hover {
@@ -258,7 +266,7 @@ body{
 }
 
 .project-cards p{
-    color: #8a00c4;
+    color: #c25aee;
 }
 
 .stack-lang {
@@ -272,121 +280,271 @@ body{
     margin-bottom: 0.5rem;
 }
 
-/* Responsive adjustments */
+.Notes,
+.ps1,
+.Design-Battle,
+.Grocery,
+.airbnb,
+.RandomEmoji,
+.KeyCode {
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+
+
+
+.project-cards > div.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card-footer a.repo-link {
+  background: linear-gradient(145deg, #200f2a, #570091);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.card-footer a.repo-link:hover {
+  transform: scale(1.05);
+  background: linear-gradient(145deg, #4b007d, #a855f7);
+}
+
+/* 
+.project-cards a{
+    background: linear-gradient(145deg, #200f2a, #570091);
+    color: #fff;
+    padding: .5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    position: absolute;
+    right: 2px;
+    bottom: 2px;
+} */
+
+
+footer {
+  padding: 20px;
+  text-align: center;
+}
+
+footer h1{
+    text-align: center;
+    padding: 2rem;
+    color:#a855f7 ;
+}
+
+footer a {
+  margin: 0 10px;
+  display: inline-block;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+footer a:hover {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
+
+footer .socialmedia{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    margin: 10px;
+}
+
+.linkedin, .insta, .mail{
+     background:linear-gradient(145deg, #200f2a, #570091);
+  border-radius: 100%;
+  padding: 20px;
+}
+
+.socialmedia img {
+  width: 30px;
+  height: 30px;
+}
+
+
+@media (max-width: 1024px) {
+  .about-left,
+  .about-right {
+    width: 100%;
+    align-items: center;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .me-pic {
+    max-width: 90%;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 40px;
+  }
+
+  .project-cards {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 20px;
+  }
+
+  .project-cards > div {
+    padding: 1rem;
+  }
+
+  .card-footer {
+    justify-content: center;
+  }
+
+  .card-footer a.repo-link {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
 @media (max-width: 768px) {
-    .nav-elements {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
+  .nav-elements {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
-    .rightnav {
-        margin: 10px 0;
-    }
+  .rightnav {
+    margin: 10px 0;
+  }
 
-    .rightnav a {
-        padding: 8px;
-        margin: 3px;
-        display: block;
-    }
+  .rightnav a {
+    padding: 8px;
+    margin: 3px;
+    display: block;
+  }
 
-    .About {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
+  .About {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
-    .About h1 {
-        font-size: 48px;
-        margin-left: 0;
-    }
+  .About h1 {
+    font-size: 42px;
+    margin-left: 0;
+    text-align: center;
+  }
 
-    .about-left {
-        gap: 40px;
-        margin: 0;
-        align-items: center;
-    }
+  .about-left {
+    gap: 40px;
+    margin: 0 auto;
+    align-items: center;
+  }
 
-    .about-right {
-        margin-top: 40px;
-        width: 90%;
-    }
+  .about-right {
+    width: 90%;
+    margin-top: 30px;
+  }
 
-    .me-pic {
-        width: 90%;
-        height: auto;
-        margin-top: -80px;
-    }
+  .me-pic {
+    width: 90%;
+    height: auto;
+    margin-top: 0;
+  }
 
-    .education {
-        flex-direction: column;
-        align-items: center;
-    }
+  .education {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .education-para, .projects {
-        width: 90%;
-        margin-bottom: 20px;
-    }
+  .education-para,
+  .projects {
+    width: 90%;
+    margin-bottom: 20px;
+  }
 
-    .lang {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 1rem;
-        justify-items: center;
-    }
+  .Skills h1 {
+    font-size: 36px;
+  }
 
-    .lang-cards {
-        width: 120px;
-        height: 120px;
-    }
+  .skills-grid {
+    padding: 20px;
+    gap: 1rem;
+  }
 
-    .Skills-header {
-        font-size: 40px;
-        margin: 30px 0;
-    }
+  .project-cards {
+    grid-template-columns: 1fr;
+  }
 
-    .Skills h1 {
-        font-size: 36px;
-    }
+  .Projects h1 {
+    font-size: 36px;
+  }
 
-    .skills-grid {
-        padding: 20px;
-        gap: 1rem;
-    }
+  .project-cards img {
+    height: 180px;
+  }
 
-    .Projects h1 {
-        font-size: 40px;
-    }
+  .stack-lang {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.4rem;
+  }
 
-    .project-cards {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
+  .card-footer {
+    justify-content: center;
+  }
+
+  .card-footer a.repo-link {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
 }
 
 @media (max-width: 480px) {
-    .text-logo {
-        font-size: 20px;
-    }
+  .text-logo {
+    font-size: 20px;
+  }
 
-    .btn {
-        padding: 8px 12px;
-        font-size: 14px;
-    }
+  .btn {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
 
-    .intro {
-        font-size: 16px;
-        padding: 20px;
-    }
+  .intro {
+    font-size: 16px;
+    padding: 20px;
+  }
 
-    .skill-name {
-        font-size: 18px;
-    }
+  .skill-name {
+    font-size: 18px;
+  }
 
-    .Projects h1 {
-        font-size: 32px;
-    }
+  .Projects h1 {
+    font-size: 28px;
+  }
 
-    .project-cards img {
-        height: 150px;
-    }
+  .project-cards img {
+    height: 150px;
+  }
+
+  .card-footer a.repo-link {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .linkedin,
+  .insta,
+  .mail {
+    padding: 12px;
+  }
+
+  .socialmedia img {
+    width: 24px;
+    height: 24px;
+  }
 }
+
